@@ -1,0 +1,14 @@
+<!-- repository-list.component.html -->
+<div *ngFor="let repo of repositories" class="repository-box">
+  <h2>{{ repo.name }}</h2>
+  <p>{{ repo.description }}</p>
+  <div class="tech-stack">
+    <span *ngFor="let topic of extractTechStack(repo)" class="tech">{{ topic }}</span>
+  </div>
+</div>
+
+<div class="pagination flex justify-center items-center mt-4">
+  <button (click)="previousPage()" [disabled]="currentPage === 1" class="pagination-button">Previous</button>
+  <span class="page-indicator mx-2">Page {{ currentPage }}</span>
+  <button (click)="nextPage()" [disabled]="repositories.length < pageSize" class="pagination-button">Next</button>
+</div>

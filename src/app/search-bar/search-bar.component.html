@@ -1,0 +1,22 @@
+<!-- search-bar.component.html -->
+<div class="search-container flex items-center justify-center mb-4">
+  <input
+    type="text"
+    placeholder="Enter GitHub username"
+    [(ngModel)]="username"
+    class="input-field p-2 border border-gray-300 rounded mr-2"
+  />
+  <button
+    class="search-button p-2 bg-blue-600 text-white rounded"
+    (click)="search()"
+  >
+    Search
+  </button>
+  <select
+    class="dropdown-menu p-2 border border-gray-300 rounded ml-2"
+    [(ngModel)]="pageSize"
+    (change)="onPageSizeChange()"
+  >
+    <option *ngFor="let size of pageSizes" [value]="size">{{ size }}</option>
+  </select>
+</div>
